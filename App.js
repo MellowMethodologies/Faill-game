@@ -69,7 +69,7 @@ export default function App() {
   }, [gameActive, selectedDifficulty]);
 
   const spawnTarget = (config) => {
-    const id = Date.now() + Math.random();
+    const id = Date.now() + Math.random() * 1000000;
     const maxX = width - config.targetSize - 40;
     const maxY = height - config.targetSize - 200;
     const minX = 20;
@@ -297,7 +297,7 @@ export default function App() {
   if (screen === 'gameOver') {
     const accuracy = hits + misses > 0 
       ? ((hits / (hits + misses)) * 100).toFixed(1)
-      : 0;
+      : '0.0';
     
     let rating = '⭐';
     if (accuracy >= 90) rating = '⭐⭐⭐⭐⭐';
